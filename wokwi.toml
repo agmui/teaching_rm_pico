@@ -1,0 +1,5 @@
+[wokwi]
+version = 1
+firmware = "build/pico_app.uf2"
+elf = "build/pico_app.elf"
+gdbServerPort=3333

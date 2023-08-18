@@ -24,6 +24,16 @@
             "break main",
             "continue"
         ]
+      },
+      {
+        "name": "Wokwi GDB",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${command:cmake.launchTargetPath}",
+        "cwd": "${workspaceFolder}",
+        "MIMode": "gdb",
+        "miDebuggerPath": "gdb-multiarch",//"/usr/local/bin/xtensa-esp32-elf-gdb",
+        "miDebuggerServerAddress": "localhost:3333"
       }
     ]
   }

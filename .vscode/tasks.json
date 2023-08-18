@@ -1,0 +1,48 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cmake",
+			"label": "CMake",
+			"command": "build",
+			"targets": [
+				"all"
+			],
+			// "group": "build",
+			"problemMatcher": [],
+			"options": {
+                "environment": { "CLICOLOR_FORCE": "1" }// adds color
+            },
+			"detail": "CMake build task",
+		},
+		{
+			"label": "upload",
+			"type": "shell",
+			"windows":{
+				"command": "sudo picotool load -f ${workspaceFolder}/build/pico_app.uf2"
+			},
+			"linux": {
+				// "command": "sudo picotool load -f ${workspaceFolder}/build/pico_app.uf2"
+				"command": "echo $SHELL"
+			}
+		},
+		{
+			"label": "open serial monitor",
+			"command": "${command:vscode-serial-monitor.monitor0.focus}" //NOTE: dont put a space between the colon
+		},
+		{
+			"label": "build and upload",
+			"group": "build", // lets ctrl+shift+B work
+			"dependsOrder": "sequence",
+			"dependsOn": ["CMake", "upload", "open serial monitor"],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": true,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			}
+		}
+	]
+}

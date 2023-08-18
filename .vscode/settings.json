@@ -1,0 +1,22 @@
+{
+  // "cmake.sourceDirectory": "/home/agmui/cs/pico/rm_pico_app",
+  "cmake.configureOnOpen": false,
+  "cmake.statusbar.advanced": {
+    "debug": {
+      "visibility": "hidden"
+    },
+    "launch": {
+      "visibility": "hidden"
+    },
+    // "build": {
+    //   "visibility": "hidden"
+    // },
+    // "buildTarget": {
+    //   "visibility": "hidden"
+    // }
+  },
+  "files.associations": {
+    "ratio": "cpp",
+    "iostream": "cpp"
+  }
+}

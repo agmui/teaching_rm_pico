@@ -1,0 +1,3 @@
+[submodule "rm_pico_dev"]
+	path = rm_pico_dev
+	url = git@github.com:agmui/rm_pico_dev.git

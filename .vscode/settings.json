@@ -7,7 +7,7 @@
     },
     "launch": {
       "visibility": "hidden"
-    },
+    }
     // "build": {
     //   "visibility": "hidden"
     // },
@@ -18,5 +18,10 @@
   "files.associations": {
     "ratio": "cpp",
     "iostream": "cpp"
+  },
+  "files.exclude": {
+    ".gitignore": true,
+    ".gitmodules": true,
+    "wokwi.toml": true,
   }
 }

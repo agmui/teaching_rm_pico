@@ -8,15 +8,20 @@ git submodule update --init --recommend-shallow # updates rm_pico_dev
 cd rm_pico_dev
 git submodule update --init --recommend-shallow # updates rm_pico_dev/lib and rm_pico_dev/picotool
 cd lib/pico-sdk/
-sdk_path=$(pwd)
+SDK_PATH=$(pwd)
+echo "export PICO_SDK_PATH=$SDK_PATH" >> ~/.bashrc # adding picosdk to path
 git submodule update --init --recommend-shallow # updates rm_pico_dev/lib/pico-sdk/lib
 
 
 # building picotool
-sudo apt install -y libusb-1.0-0-dev
+sudo apt install -y pkg-config libusb-1.0-0-dev
 cd ../../picotool
 mkdir build
 cd build
-export PICO_SDK_PATH=$sdk_path
+export PICO_SDK_PATH=$SDK_PATH
 cmake ../
-make
+make -j4
+
+echo "Installing picotool to /usr/local/bin/picotool"
+sudo cp picotool /usr/local/bin/
+#sudo cp udev/99-picotool.rules /etc/udev/rules.d/ # run picotool without sudo

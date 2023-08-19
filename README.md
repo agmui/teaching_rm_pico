@@ -23,6 +23,15 @@ dependency:
 
 Next install vscode and go on to the [vscode section](#vscode-extensions)
 
+## Mac
+
+<details>
+<summary>might not work lol</summary>
+
+`brew install libusb pkg-config`
+
+</details>
+
 ## vscode extensions
 
 When first opining the project it should ask you to install the plugins
@@ -38,6 +47,8 @@ Make sure the pico is pluged in
 
 #### Method 1
 
+> Note: This method assumes you installed all the recomned plugins from the [vscode section](#vscode-extensions)
+
 Step1:  
 select kit
 TODO: add pic
@@ -48,17 +59,19 @@ press `f7`
 Step3:  
 after finish building press `ctrl + shift + B`  
 
+### BIG NOTE: If the pico bricks you cant just use `ctrl+shift+B` you have to reset it or do Method 2
+
 #### Method 2
 
 ```bash
 mkdir build
 cd build
 cmake ..
-make
+make -j4
 picotool load -f pico_app.uf2
 ```
 
-#### If all else fails
+#### If all else fails:
 
 <details>
 <summary>Method 3</summary>
@@ -67,7 +80,7 @@ picotool load -f pico_app.uf2
 mkdir build
 cd build
 cmake ..
-make
+make -j4
 ```
 
 unplug the pico  

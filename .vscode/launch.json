@@ -40,6 +40,16 @@
         "clear main"
       ]
     },
+    {
+      "name": "Wokwi GDB",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${command:cmake.launchTargetPath}",
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb-multiarch",
+      "miDebuggerServerAddress": "localhost:3333"
+    },
     /*{
       "name": "Cortex Debug",
       "cwd": "${workspaceRoot}",

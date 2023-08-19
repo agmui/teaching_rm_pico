@@ -21,7 +21,7 @@ Next install vscode and go on to the [vscode section](#vscode-extensions)
 dependency:
 [libusb download](https://github.com/libusb/libusb/releases/latest)
 
-Next install vscode and go on to the [vscode section](#vscode-extensions)
+Next install [vscode](https://code.visualstudio.com/Download) and go on to the [vscode section](#vscode-extensions)
 
 ## Mac
 
@@ -34,9 +34,11 @@ Next install vscode and go on to the [vscode section](#vscode-extensions)
 
 ## vscode extensions
 
-When first opining the project it should ask you to install the plugins
+Have vscode open this folder (`sample_rm_pico_app`)  
+When first opining vscode should ask you to install the plugins  
+![install plugins](pics/install_plugins.png)
 
-If not just type `@recommened` in the extentions window  
+If not just type `@recommened` here  
 ![recommened](pics/recommened.png)
 
 These are recomened extensions to install.
@@ -51,13 +53,11 @@ Make sure the pico is pluged in
 
 Step1:  
 select kit
-TODO: add pic
+![no kit selected button](pics/noKitBtn.png)
+![seleting arm kit](pics/armKit.png)
 
 Step2:  
-press `f7`  
-
-Step3:  
-after finish building press `ctrl + shift + B`  
+press `ctrl + shift + B`  
 
 ### BIG NOTE: If the pico bricks you cant just use `ctrl+shift+B` you have to reset it or do Method 2
 
@@ -71,7 +71,7 @@ make -j4
 picotool load -f pico_app.uf2
 ```
 
-#### If all else fails:
+#### If all else fails
 
 <details>
 <summary>Method 3</summary>
@@ -104,6 +104,46 @@ drag and drop the `pico_app.u2f` file in the build folder
 
 No pico no problem!
 
+press `ctrl+shift+p` and type `Wokwi: Request a new License`
+![wokwi license](pics/wokwi_license.png)
+
+its going to ask to open a webpage  
+![wokwi trust open webpage](pics/wokwi_license_open.png)
+
+click get you license and make an account  
+![wokwi get license](pics/wokwi_get_license.png)
+
+this should pop up when it works  
+![wokwi got license](pics/license_worked.png)
+
+do `ctrl+shift+p` again  
+type `Wokwi: Start Simulator and Wait for Debugger`
+![wokwi debugging](pics/wokwi_debug_prompt.png)  
+
+<details>
+<summary>Select a Kit?</summary>
+
+if it asks to select kit  
+choose arm as kit  
+![selecting kit for wokwi debug](pics/wokwi_select_kit.png)
+
+</details>  
+
+Next select the right debugger and run
+![debug setup](pics/wokwi_debug_setup.png)
+
+then open up `main.cpp` to add breakpoints
+
 ## Building
 
-`f7`
+Method 1:  
+Just press `f7` if you installed all plugins
+
+Method 2:
+
+```
+mkdir build
+cd build
+cmake ..
+make -j4
+```

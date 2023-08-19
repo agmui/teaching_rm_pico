@@ -8,20 +8,24 @@ It uses the [rm_pico_dev](https://github.com/agmui/rm_pico_dev) library
 
 ## Linux(ubuntu)
 
+This will take a while and needs sudo
+
 ```
 git clone https://github.com/agmui/sample_rm_pico_app.git
 cd sample_rm_pico_app
 bash linux_init.sh
 ```
 
-Next install vscode and go on to the [vscode section](#vscode-extensions)
+Next install: [vscode](https://code.visualstudio.com/Download)  
+go on to [vscode section](#vscode-extensions)
 
 ## Windows
 
 dependency:
 [libusb download](https://github.com/libusb/libusb/releases/latest)
 
-Next install [vscode](https://code.visualstudio.com/Download) and go on to the [vscode section](#vscode-extensions)
+Next install: [vscode](https://code.visualstudio.com/Download)  
+go on to [vscode section](#vscode-extensions)
 
 ## Mac
 
@@ -30,18 +34,20 @@ Next install [vscode](https://code.visualstudio.com/Download) and go on to the [
 
 `brew install libusb pkg-config`
 
+Next install: [vscode](https://code.visualstudio.com/Download)  
+go on to [vscode section](#vscode-extensions)
 </details>
 
 ## vscode extensions
 
-Have vscode open this folder (`sample_rm_pico_app`)  
+install vscode  
+Have vscode open this repo
 When first opining vscode should ask you to install the plugins  
 ![install plugins](pics/install_plugins.png)
 
 If not just type `@recommened` here  
 ![recommened](pics/recommened.png)
 
-These are recomened extensions to install.
 
 ## Uploading
 
@@ -57,9 +63,20 @@ select kit
 ![seleting arm kit](pics/armKit.png)
 
 Step2:  
-press `ctrl + shift + B`  
+press `CTRL + SHIFT + B`  
 
-### BIG NOTE: If the pico bricks you cant just use `ctrl+shift+B` you have to reset it or do Method 2
+Step3:
+select the usb port the pico is plugged in it should look like this:  
+![serial monitor](pics/serial_monitor.png)  
+then hit start monitoring
+
+<details>
+<summary>if no show up</summary>
+is the pico pluged in  
+if not re press `CTRL + SHIFT + B`
+</details>
+
+### BIG NOTE: If the pico bricks you cant just use `CTRL + SHIFT + B` you have to reset it or do Method 2
 
 #### Method 2
 
@@ -100,11 +117,13 @@ drag and drop the `pico_app.u2f` file in the build folder
 ![picoprobe wiring](pic/../pics/picoprobe_wiring.png)
 > sidenote: the debugger I use for those who care [pico_debug](https://github.com/essele/pico_debug/tree/v0.3)
 
-## Running in Wokwi 👀
+## Running in [Wokwi](https://wokwi.com/) 👀
 
-No pico no problem!
+No pico no problem! We can just simulate it 🤯
 
-press `ctrl+shift+p` and type `Wokwi: Request a new License`
+### Step1
+
+press `CTRL + SHIFT + P` and type `Wokwi: Request a new License`
 ![wokwi license](pics/wokwi_license.png)
 
 its going to ask to open a webpage  
@@ -116,7 +135,9 @@ click get you license and make an account
 this should pop up when it works  
 ![wokwi got license](pics/license_worked.png)
 
-do `ctrl+shift+p` again  
+### Step2
+
+do `Ctrl + SHIFT + P` again  
 type `Wokwi: Start Simulator and Wait for Debugger`
 ![wokwi debugging](pics/wokwi_debug_prompt.png)  
 
@@ -129,15 +150,22 @@ choose arm as kit
 
 </details>  
 
-Next select the right debugger and run
+### Step3
+
+Next select the right debugger and run  
 ![debug setup](pics/wokwi_debug_setup.png)
 
 then open up `main.cpp` to add breakpoints
 
+
+to set up any wiring go here and copy the `diagram.json` when done [pico wokwi](https://wokwi.com/projects/new/pi-pico)
+
 ## Building
 
 Method 1:  
-Just press `f7` if you installed all plugins
+Just press `f7` if you installed all [plugins](#vscode-extensions)
+
+
 
 Method 2:
 

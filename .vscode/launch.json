@@ -4,7 +4,7 @@
     {
       "name": "Pico Debug",
       "cwd": "${workspaceRoot}",
-      "executable": "${command:cmake.launchTargetPath}",
+      "executable": "${workspaceFolder}/build/pico_app.elf",
       "request": "launch",
       "type": "cortex-debug",
       "servertype": "external",
@@ -44,7 +44,7 @@
       "name": "Wokwi GDB",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${command:cmake.launchTargetPath}",
+      "program": "${workspaceFolder}/build/pico_app.elf",
       "cwd": "${workspaceFolder}",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb-multiarch",

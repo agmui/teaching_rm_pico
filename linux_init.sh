@@ -1,7 +1,7 @@
 sudo apt update
 sudo apt install -y git
 # from pico docs
-sudo apt install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential gdb-multiarch
+sudo apt install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential gdb-multiarch libstdc++-arm-none-eabi-newlib doxygen
 #sudo apt install gcc g++
 
 #OUTDIR="$(pwd)"
@@ -29,5 +29,12 @@ echo "Installing picotool to /usr/local/bin/picotool"
 sudo cp picotool /usr/local/bin/
 #sudo cp udev/99-picotool.rules /etc/udev/rules.d/ # run picotool without sudo
 
-# making build dir for pico_app
-#cd $OUTDIR
+# auto open in vscode 
+cd $OUTDIR
+# checking if vscode is installed
+if command -v code &> /dev/null
+then
+    echo "vscode is installed, opining..."
+    code $OUTDIR
+    exit
+fi

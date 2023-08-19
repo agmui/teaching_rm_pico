@@ -10,6 +10,16 @@ It uses the [rm_pico_dev](https://github.com/agmui/rm_pico_dev) library
 
 This will take a while and needs sudo
 
+### WARNING DO NOT CLONE OR UPDATE RECURSIVELY
+
+<details>
+<summary>why tho?</summary>
+There are some submodules that may go on for a while (like tinyusb) and I highly
+recommend you don't need to get them.
+If you want to see what submodules I update just look in `linux_init.sh`
+
+</details>
+
 ```
 git clone https://github.com/agmui/sample_rm_pico_app.git
 cd sample_rm_pico_app
@@ -26,6 +36,12 @@ dependency:
 
 Next install: [vscode](https://code.visualstudio.com/Download)  
 go on to [vscode section](#vscode-extensions)
+
+### WSL
+
+follow the linux guide but currently some methods do not work (also ur kinda on ur own hehe)
+
+TODO: make separate guide for vscode section
 
 ## Mac
 
@@ -45,8 +61,8 @@ Have vscode open this repo
 When first opining vscode should ask you to install the plugins  
 ![install plugins](pics/install_plugins.png)
 
-If not just type `@recommened` here  
-![recommened](pics/recommened.png)
+If not just type `@recommended` here  
+![recommened](pics/recommended.png)
 
 
 ## Uploading
@@ -55,12 +71,12 @@ Make sure the pico is pluged in
 
 #### Method 1
 
-> Note: This method assumes you installed all the recomned plugins from the [vscode section](#vscode-extensions)
+> Note: This method assumes you installed all the recommend plugins from the [vscode section](#vscode-extensions)  
 
 Step1:  
 select kit
 ![no kit selected button](pics/noKitBtn.png)
-![seleting arm kit](pics/armKit.png)
+![selecting arm kit](pics/armKit.png)
 
 Step2:  
 press `CTRL + SHIFT + B`  
@@ -72,7 +88,7 @@ then hit start monitoring
 
 <details>
 <summary>if no show up</summary>
-is the pico pluged in  
+is the pico plugged in  
 if not re press `CTRL + SHIFT + B`
 </details>
 
@@ -105,17 +121,30 @@ Hold the bootsel button on the pico
 ![bootsel](pics/bootsel.png)  
 while still holding the button plug the pico back in
 
-A usb stick should pop up in your file exploer  
+A usb stick should pop up in your file explorer  
 TODO: add pic
 
 drag and drop the `pico_app.u2f` file in the build folder
+![copying over uf2 file](pics/copy_uf2_over.png)
 
 </details>
 
 ## Debugging
 
+Wire up two picos like this  
 ![picoprobe wiring](pic/../pics/picoprobe_wiring.png)
-> sidenote: the debugger I use for those who care [pico_debug](https://github.com/essele/pico_debug/tree/v0.3)
+
+upload this file
+[pico-debug.uf2](https://github.com/essele/pico_debug/releases/tag/v0.3)
+to the left pico in the picture using any method from [above](#uploading)
+
+Next select the right debugger and run  
+![pico debug](pics/pico_debug.png)
+
+You can also open serial monitor if you want bc uart is passed through
+
+> side note: I dont use picoprobe I use this for those who care
+[pico_debug](https://github.com/essele/pico_debug/tree/v0.3)
 
 ## Running in [Wokwi](https://wokwi.com/) 👀
 

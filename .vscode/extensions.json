@@ -2,7 +2,9 @@
   "recommendations": [
     "marus25.cortex-debug",
     "ms-vscode.cmake-tools",
-    "ms-vscode.cpptools",
-    "Wokwi.wokwi-vscode"
+    "ms-vscode.cpptools-extension-pack",
+    "Wokwi.wokwi-vscode",
+    "ms-vscode.vscode-serial-monitor",
+    "cschlosser.doxdocgen"
   ]
 }

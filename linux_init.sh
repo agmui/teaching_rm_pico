@@ -16,7 +16,7 @@ cd rm_pico_dev
 git submodule update --init --recommend-shallow # updates rm_pico_dev/lib and rm_pico_dev/picotool
 cd lib/pico-sdk/
 SDK_PATH=$(pwd)
-echo "export PICO_SDK_PATH=$SDK_PATH" >> ~/.bashrc # adding picosdk to path
+echo "export PICO_SDK_PATH=$SDK_PATH" >> ~/.profile # adding picosdk to path
 source ~/.bashrc
 git submodule update --init --recommend-shallow # updates rm_pico_dev/lib/pico-sdk/lib
 

@@ -23,7 +23,7 @@ If you want to see what submodules I update just look in `linux_init.sh`
 ```bash
 git clone https://github.com/agmui/sample_rm_pico_app.git
 cd sample_rm_pico_app
-bash linux_init.sh
+./linux_init.sh
 ```
 
 Next install: [vscode](https://code.visualstudio.com/Download)  
@@ -31,8 +31,6 @@ go on to [vscode section](#vscode-extensions)
 
 ## Windows
 
-dependency:
-[libusb download](https://github.com/libusb/libusb/releases/latest)
 
 Next install: [vscode](https://code.visualstudio.com/Download)  
 go on to [vscode section](#vscode-extensions)

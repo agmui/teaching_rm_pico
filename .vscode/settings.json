@@ -15,7 +15,7 @@
   },
   // "cmake.sourceDirectory": "/home/agmui/cs/pico/rm_pico_app",
   "cmake.buildBeforeRun": true,
-  "cmake.configureOnOpen": true,
+  "cmake.configureOnOpen": false,
   "cmake.generator": "Ninja",
   "files.associations": {
     "ratio": "cpp",

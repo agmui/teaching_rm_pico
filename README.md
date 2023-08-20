@@ -142,7 +142,7 @@ Next select the right debugger and run
 
 You can also open serial monitor if you want bc uart is passed through
 
-> side note: I dont use picoprobe I use this for those who care
+> side note: I don't use picoprobe or openocd. I use this for those who care
 [pico_debug](https://github.com/essele/pico_debug/tree/v0.3)
 
 ## Running in [Wokwi](https://wokwi.com/) 👀

@@ -1,9 +1,11 @@
 sudo apt update
+echo ================================================================================================================================================================
 sudo apt install -y git
 # from pico docs
 sudo apt install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential \
     gdb-multiarch libstdc++-arm-none-eabi-newlib doxygen ninja-build
 #sudo apt install gcc g++
+echo ================================================================================================================================================================
 
 OUTDIR="$(pwd)"
 
@@ -14,9 +16,10 @@ git submodule update --init --recommend-shallow # updates rm_pico_dev/lib and rm
 cd lib/pico-sdk/
 SDK_PATH=$(pwd)
 echo "export PICO_SDK_PATH=$SDK_PATH" >> ~/.bashrc # adding picosdk to path
+source ~/.bashrc
 git submodule update --init --recommend-shallow # updates rm_pico_dev/lib/pico-sdk/lib
 
-echo ================================================================================ 
+echo ================================================================================================================================================================
 
 cd $OUTDIR
 # building picotool (from pico tool github)
@@ -25,12 +28,11 @@ cd picotool
 sudo apt install -y pkg-config libusb-1.0-0-dev
 mkdir build
 cd build
-export PICO_SDK_PATH=$SDK_PATH
-source ~/.bashrc
+# export PICO_SDK_PATH=$SDK_PATH
 cmake ../
 make -j4
 
-echo ================================================================================ 
+echo ================================================================================================================================================================ 
 
 echo "Installing picotool to /usr/local/bin/picotool"
 sudo cp picotool /usr/local/bin/

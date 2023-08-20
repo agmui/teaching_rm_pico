@@ -15,7 +15,7 @@
   },
   // "cmake.sourceDirectory": "/home/agmui/cs/pico/rm_pico_app",
   "cmake.buildBeforeRun": true,
-  "cmake.configureOnOpen": false,
+  "cmake.configureOnOpen": true,
   "cmake.generator": "Ninja",
   "files.associations": {
     "ratio": "cpp",
@@ -26,5 +26,5 @@
     ".gitmodules": true,
     "wokwi.toml": true,
   },
-  "git.detectSubmodules": false// hides all submodules in git tab
+  "git.detectSubmodules": false,// hides all submodules in git tab
 }

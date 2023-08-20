@@ -20,7 +20,7 @@ If you want to see what submodules I update just look in `linux_init.sh`
 
 </details>
 
-```
+```bash
 git clone https://github.com/agmui/sample_rm_pico_app.git
 cd sample_rm_pico_app
 bash linux_init.sh
@@ -63,7 +63,6 @@ When first opining vscode should ask you to install the plugins
 
 If not just type `@recommended` here  
 ![recommened](pics/recommended.png)
-
 
 ## Uploading
 
@@ -186,7 +185,6 @@ Next select the right debugger and run
 
 then open up `main.cpp` to add breakpoints
 
-
 to set up any wiring go here and copy the `diagram.json` when done [pico wokwi](https://wokwi.com/projects/new/pi-pico)
 
 ## Building
@@ -194,11 +192,9 @@ to set up any wiring go here and copy the `diagram.json` when done [pico wokwi](
 Method 1:  
 Just press `f7` if you installed all [plugins](#vscode-extensions)
 
-
-
 Method 2:
 
-```
+```bash
 mkdir build
 cd build
 cmake ..

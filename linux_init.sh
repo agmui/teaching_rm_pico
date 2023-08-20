@@ -16,6 +16,7 @@ SDK_PATH=$(pwd)
 echo "export PICO_SDK_PATH=$SDK_PATH" >> ~/.bashrc # adding picosdk to path
 git submodule update --init --recommend-shallow # updates rm_pico_dev/lib/pico-sdk/lib
 
+echo ================================================================================ 
 
 cd $OUTDIR
 # building picotool (from pico tool github)
@@ -25,8 +26,11 @@ sudo apt install -y pkg-config libusb-1.0-0-dev
 mkdir build
 cd build
 export PICO_SDK_PATH=$SDK_PATH
+source ~/.bashrc
 cmake ../
 make -j4
+
+echo ================================================================================ 
 
 echo "Installing picotool to /usr/local/bin/picotool"
 sudo cp picotool /usr/local/bin/

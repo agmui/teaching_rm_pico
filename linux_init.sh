@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo apt update
 echo ================================================================================================================================================================
 sudo apt install -y git
@@ -28,7 +29,7 @@ cd picotool
 sudo apt install -y pkg-config libusb-1.0-0-dev
 mkdir build
 cd build
-# export PICO_SDK_PATH=$SDK_PATH
+export PICO_SDK_PATH=$SDK_PATH
 cmake ../
 make -j4
 

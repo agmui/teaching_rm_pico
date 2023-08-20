@@ -16,8 +16,8 @@ cd rm_pico_dev
 git submodule update --init --recommend-shallow # updates rm_pico_dev/lib and rm_pico_dev/picotool
 cd lib/pico-sdk/
 SDK_PATH=$(pwd)
-echo "export PICO_SDK_PATH=$SDK_PATH" >> ~/.profile # adding picosdk to path
-source ~/.bashrc
+echo "export PICO_SDK_PATH=$SDK_PATH" >> ~/.bashrc # adding picosdk to path
+export PICO_SDK_PATH=$SDK_PATH
 git submodule update --init --recommend-shallow # updates rm_pico_dev/lib/pico-sdk/lib
 
 echo ================================================================================================================================================================
@@ -29,7 +29,6 @@ cd picotool
 sudo apt install -y pkg-config libusb-1.0-0-dev
 mkdir build
 cd build
-export PICO_SDK_PATH=$SDK_PATH
 cmake ../
 make -j4
 
@@ -42,12 +41,13 @@ sudo cp udev/99-picotool.rules /etc/udev/rules.d/ # run picotool without sudo
 cd ..
 rm -rf picotool/
 
+# does not work because you can't update path
 # auto open in vscode 
-cd $OUTDIR
+#cd $OUTDIR
 # checking if vscode is installed
-if command -v code &> /dev/null
-then
-    echo "vscode is installed, opining..."
-    code $OUTDIR
-    exit
-fi
+#if command -v code &> /dev/null
+#then
+#    echo "vscode is installed, opining..."
+#    code $OUTDIR
+#    exit
+#fi

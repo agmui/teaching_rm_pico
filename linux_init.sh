@@ -1,7 +1,8 @@
 sudo apt update
 sudo apt install -y git
 # from pico docs
-sudo apt install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential gdb-multiarch libstdc++-arm-none-eabi-newlib doxygen
+sudo apt install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential \
+    gdb-multiarch libstdc++-arm-none-eabi-newlib doxygen ninja-build
 #sudo apt install gcc g++
 
 OUTDIR="$(pwd)"

@@ -22,8 +22,7 @@
 				"command": "sudo picotool load -f ${workspaceFolder}/build/pico_app.uf2"
 			},
 			"linux": {
-				// "command": "sudo picotool load -f ${workspaceFolder}/build/pico_app.uf2"
-				"command": "echo $SHELL"
+				"command": "picotool load -f ${workspaceFolder}/build/pico_app.uf2"
 			}
 		},
 		{

@@ -10,7 +10,7 @@ It uses the [rm_pico_dev](https://github.com/agmui/rm_pico_dev) library
 
 This will take a while and needs sudo
 
-### WARNING DO NOT CLONE OR UPDATE RECURSIVELY
+### WARNING DO NOT UPDATE RECURSIVELY
 
 <details>
 <summary>why tho?</summary>
@@ -31,9 +31,11 @@ go on to [vscode section](#vscode-extensions)
 
 ## Windows
 
+download and run: [rm-pico-installer](https://github.com/agmui/rm-pico-setup-windows/releases/download/v1.0.0-alpha/pico-setup-windows-x64-standalone.exe)
 
-Next install: [vscode](https://code.visualstudio.com/Download)  
-go on to [vscode section](#vscode-extensions)
+It automatically installs all the tools and vscode.
+
+Next go on to [vscode section](#vscode-extensions)
 
 ### WSL
 

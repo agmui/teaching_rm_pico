@@ -41,7 +41,7 @@ sudo cp udev/99-picotool.rules /etc/udev/rules.d/ # run picotool without sudo
 cd ..
 rm -rf picotool/
 
-# does not work because you can't update path
+# does not work because you can't update path(https://unix.stackexchange.com/questions/675050/update-bashrc-and-reload)
 # auto open in vscode 
 #cd $OUTDIR
 # checking if vscode is installed

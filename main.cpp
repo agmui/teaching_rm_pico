@@ -24,6 +24,15 @@ int main(int argc, char const *argv[])
         gpio_put(25, 0); // Set pin 25 to high.
         sleep_ms(250);
         printf("LED switched off!\n");
+        try
+        {
+            throw std::invalid_argument("received negative value");
+        }
+        catch (const std::invalid_argument &e)
+        {
+            std::cout << "throw" << std::endl;
+        }
+
 
         // ====
         std::cout << "." << std::endl;
@@ -35,4 +44,3 @@ int main(int argc, char const *argv[])
         tight_loop_contents();
     }
 }
-

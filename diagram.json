@@ -1,30 +1,173 @@
 {
-    "version": 1,
-    "author": "Uri Shaked",
-    "editor": "wokwi",
-    "parts": [
-      {
-        "type": "wokwi-pi-pico",
-        "id": "pico",
-        "top": 73.9,
-        "left": 132.55,
-        "rotate": 90,
-        "attrs": { "env": "arduino-community" }
-      },
-      {
-        "type": "wokwi-resistor",
-        "id": "r1",
-        "top": 86,
-        "left": 172.8,
-        "attrs": { "value": "1000" }
-      },
-      { "type": "wokwi-led", "id": "led1", "top": 54, "left": 138.2, "attrs": { "color": "red" } }
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 73.9,
+      "left": 132.55,
+      "rotate": 90,
+      "attrs": { "env": "arduino-community" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 86,
+      "left": 172.8,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 54,
+      "left": 138.2,
+      "attrs": { "color": "red" }
+    },
+
+    {
+      "type": "chip-dji-remote",
+      "id": "chip1",
+      "top": 395.22,
+      "left": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "left_joystick",
+      "top": 171.27,
+      "left": 99.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "right_joystick",
+      "top": 171.8,
+      "left": 427.13,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd1",
+      "top": 290.97,
+      "left": 161.33,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd2",
+      "top": 312.57,
+      "left": 488.93,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd3",
+      "top": 429.24,
+      "left": 409.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc1",
+      "top": 297.3,
+      "left": 110.53,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc2",
+      "top": 302.91,
+      "left": 432.13,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc3",
+      "top": 423.13,
+      "left": 393.05,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-logic-analyzer",
+      "id": "logic1",
+      "top": 405.36,
+      "left": 449.98,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "up_left",
+      "top": 109.76,
+      "left": -93.87,
+      "attrs": { "color": "green", "bounce": "0", "key": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "mid_left",
+      "top": 110,
+      "left": 4.04,
+      "attrs": { "color": "green", "bounce": "0", "key": "2" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "down_left",
+      "top": 110,
+      "left": 84.14,
+      "attrs": { "color": "green", "bounce": "0", "key": "3" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "up_right",
+      "top": 110,
+      "left": 363.96,
+      "attrs": { "color": "green", "bounce": "0", "key": "7" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "mid_right",
+      "top": 110,
+      "left": 457.22,
+      "attrs": { "color": "green", "bounce": "0", "key": "8" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "mid_down",
+      "top": 110,
+      "left": 535.61,
+      "attrs": { "color": "green", "bounce": "0", "key": "9" }
+    }
+  ],
+  "connections": [
+    ["pico:GP0", "$serialMonitor:RX", "", []],
+    ["pico:GP1", "$serialMonitor:TX", "", []],
+    ["pico:GP2", "r1:2", "green", ["v0"]],
+    ["r1:1", "led1:A", "green", ["v0"]],
+    ["pico:GND.3", "led1:C", "black", ["v-19.2", "h9.6"]],
+    ["left_joystick:GND", "gnd1:GND", "black", ["v0"]],
+    ["chip1:GND", "gnd3:GND", "black", ["h0"]],
+    ["left_joystick:VCC", "vcc1:VCC", "red", ["v0"]],
+    ["vcc2:VCC", "right_joystick:VCC", "red", ["v2.45", "h44.4"]],
+    ["left_joystick:SEL", "vcc1:VCC", "red", ["v0"]],
+    ["right_joystick:SEL", "vcc2:VCC", "red", ["v0"]],
+    ["left_joystick:VERT", "chip1:Left_virt_joy", "green", ["v0"]],
+    ["left_joystick:HORZ", "chip1:Left_horz_joy", "green", ["v0"]],
+    [
+      "right_joystick:VERT",
+      "chip1:Right_horz_joy",
+      "gold",
+      ["v21.8", "h-229.23", "v123.2"]
     ],
-    "connections": [
-      [ "pico:GP0", "$serialMonitor:RX", "", [] ], 
-      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
-      [ "pico:GP2", "r1:2", "green", [ "v0" ] ],
-      [ "r1:1", "led1:A", "green", [ "v0" ] ],
-      [ "pico:GND.3", "led1:C", "black", [ "v-19.2", "h9.6" ] ]
-    ]
-  }
+    [
+      "right_joystick:HORZ",
+      "chip1:Right_virt_joy",
+      "gold",
+      ["v31.8", "h-223.5", "v103.6"]
+    ],
+    ["vcc3:VCC", "chip1:VCC", "red", ["v0"]],
+    ["logic1:D0", "chip1:TX", "green", ["h0"]],
+    ["gnd3:GND", "logic1:GND", "black", ["v0"]],
+    ["gnd2:GND", "right_joystick:GND", "black", ["v0"]]
+  ]
+}

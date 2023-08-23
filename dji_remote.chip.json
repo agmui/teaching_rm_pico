@@ -1,0 +1,26 @@
+{
+    "name": "dji-remote",
+    "author": "agmui",
+    "pins": [
+      "Left_virt_joy",
+      "Left_horz_joy",
+      "Right_virt_joy",
+      "Right_horz_joy",
+  
+      "Left_switch",
+      "Right_switch",
+      "mouse",
+      "keeb",
+  
+  
+      "",
+      "",
+      "",
+      "",
+  
+      "VCC",
+      "GND",
+      "TX"
+    ],
+    "controls": []
+  }

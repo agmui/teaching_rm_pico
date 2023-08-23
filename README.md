@@ -95,6 +95,7 @@ if not re press `CTRL + SHIFT + B`
 </details>
 
 ### BIG NOTE: If the pico bricks you cant just use `CTRL + SHIFT + B` you have to reset it or do Method 2
+please go to [I borked my pico](#I borked my pico) section for more
 
 #### Method 2
 
@@ -203,6 +204,8 @@ cd build
 cmake ..
 make -j4
 ```
+
+## I borked my pico
 
 TODO:
 * linux reaload udev rules

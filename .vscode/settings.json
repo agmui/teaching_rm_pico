@@ -27,4 +27,5 @@
     "wokwi.toml": true,
   },
   "git.detectSubmodules": false,// hides all submodules in git tab
+  "workspaceKeybindings.myAwesomeTask.enabled": true // setting can be anything you want
 }

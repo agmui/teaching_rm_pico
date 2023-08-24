@@ -1,0 +1,8 @@
+[
+  {
+    "key": "f4",
+    "command": "workbench.action.tasks.test",
+    "args": "My Awesome Task",
+    "when": "config.workspaceKeybindings.myAwesomeTask.enabled"
+  }
+]

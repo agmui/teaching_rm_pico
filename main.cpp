@@ -18,12 +18,12 @@ int main(int argc, char const *argv[])
     {
         // Turn On LED
         gpio_put(25, 1); // Set pin 25 to high
+        printf("LED on!\n");
         sleep_ms(250);
-        printf("LED n!\n");
         // Turn Off LED
         gpio_put(25, 0); // Set pin 25 to high.
+        printf("LED off!\n");
         sleep_ms(250);
-        printf("LED switched off!\n");
         try
         {
             throw std::invalid_argument("received negative value");

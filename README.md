@@ -211,3 +211,4 @@ TODO:
 * linux reaload udev rules
 * have tools.json be able to load examples
 * fix picotool bug where on reboot if in bootsel state u cant use picotool
+* write rm_pico extension to have ctrl+shift+t run wokwi tests

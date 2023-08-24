@@ -8,8 +8,7 @@
       "id": "pico",
       "top": 73.9,
       "left": 132.55,
-      "rotate": 90,
-      "attrs": { "env": "arduino-community" }
+      "rotate": 90
     },
     {
       "type": "wokwi-resistor",

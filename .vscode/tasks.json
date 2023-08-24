@@ -4,21 +4,23 @@
 		{
 			"type": "cmake",
 			"label": "CMake",
+			"group": "build",
 			"command": "build",
 			"targets": [
 				"all"
 			],
-			// "group": "build",
 			"problemMatcher": [],
 			"options": {
-                "environment": { "CLICOLOR_FORCE": "1" }// adds color
-            },
-			"detail": "CMake build task",
+				"environment": {
+					"CLICOLOR_FORCE": "1"
+				}
+			},
+			"detail": "CMake build task"
 		},
 		{
-			"label": "upload",
 			"type": "shell",
-			"windows":{
+			"label": "upload",
+			"windows": {
 				"command": "sudo picotool load -f ${workspaceFolder}/build/pico_app.uf2"
 			},
 			"linux": {
@@ -27,13 +29,20 @@
 		},
 		{
 			"label": "open serial monitor",
-			"command": "${command:vscode-serial-monitor.monitor0.focus}" //NOTE: dont put a space between the colon
+			"command": "${command:vscode-serial-monitor.monitor0.focus}"
 		},
 		{
 			"label": "build and upload",
-			"group": "build", // lets ctrl+shift+B work
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
 			"dependsOrder": "sequence",
-			"dependsOn": ["CMake", "upload", "open serial monitor"],
+			"dependsOn": [
+				"CMake",
+				"upload",
+				"open serial monitor"
+			],
 			"presentation": {
 				"echo": true,
 				"reveal": "always",
@@ -42,6 +51,16 @@
 				"showReuseMessage": true,
 				"clear": false
 			}
+		},
+		{
+			"type": "shell",
+			"label": "run test",
+			"detail": "run Wokwi tests",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"command": "wokwi-cli ${workspaceFolder} --scenario ${workspaceFolder}/test/wokwi.sample_test.yaml --timeout 1000"
 		}
 	]
 }

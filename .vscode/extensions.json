@@ -5,6 +5,7 @@
     "ms-vscode.cpptools-extension-pack",
     "Wokwi.wokwi-vscode",
     "ms-vscode.vscode-serial-monitor",
-    "cschlosser.doxdocgen"
+    "cschlosser.doxdocgen",
+    "github.vscode-github-actions"
   ]
 }

@@ -218,6 +218,8 @@ make -j4
 
 ## I borked my pico
 
+slides install guide: https://docs.google.com/presentation/d/1am9qFasZtjAnBu1M_k-8S4nNLxHHzSmExr1Sa2NGVAE/edit?usp=sharing
+
 TODO:
 * linux reaload udev rules
 * have tools.json be able to load examples

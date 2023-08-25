@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PICO_SDK_PATH: ~/pico/pico-sdk
+      PICO_SDK_PATH: /home/runner/work/sample_rm_pico_app/lib/pico-sdk
       SDK_VERSION: 1.5.0
     steps:
       - uses: actions/checkout@v3
@@ -25,10 +25,12 @@ jobs:
       - name: Set up the Pi Pico SDK
         if: steps.cache-pico-sdk.outputs.cache-hit != 'true'
         run: |
-          mkdir ~/pico
-          cd ~/pico
-          git clone https://github.com/raspberrypi/pico-sdk.git --depth 1 --branch ${SDK_VERSION}
-          cd pico-sdk && git submodule update --init && cd ..
+          cd ${{ github.workspace }}
+          git submodule update --init
+          cd rm_pico_dev
+          git submodule update --init --recommend-shallow 
+          cd lib/pico-sdk/
+          git submodule update --init --recommend-shallow 
       - name: Compile firmware
         run: |
           cd ${{ github.workspace }}

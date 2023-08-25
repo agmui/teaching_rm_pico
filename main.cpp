@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
     pico::Drivers *drivers = new pico::Drivers();
     // pico::Drivers *drivers = pico::Drivers::getDrivers();
 
-    stdio_init_all();
+    // stdio_init_all();
     gpio_init(25);
     gpio_set_dir(25, GPIO_OUT);
 
@@ -24,14 +24,14 @@ int main(int argc, char const *argv[])
         gpio_put(25, 0); // Set pin 25 to high.
         printf("LED off!\n");
         sleep_ms(250);
-        try
-        {
-            throw std::invalid_argument("received negative value");
-        }
-        catch (const std::invalid_argument &e)
-        {
-            std::cout << "throw" << std::endl;
-        }
+        // try
+        // {
+        //     throw std::invalid_argument("received negative value");
+        // }
+        // catch (const std::invalid_argument &e)
+        // {
+        //     std::cout << "throw" << std::endl;
+        // }
 
 
         // ====

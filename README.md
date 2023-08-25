@@ -149,6 +149,17 @@ You can also open serial monitor if you want bc uart is passed through
 > side note: I don't use picoprobe or openocd. I use this for those who care
 [pico_debug](https://github.com/essele/pico_debug/tree/v0.3)
 
+### Don't have a second pico?
+
+Just upload this file:
+[pico-debug-gimmecache.uf2](https://github.com/majbthrd/pico-debug/releases/download/v10.05/pico-debug-gimmecache.uf2)
+
+Then choose Duo_Core_Debug  
+![duo core debug pic](pics/duo_core_debug.png)
+
+github: [pico-debug](https://github.com/majbthrd/pico-debug)
+
+### NOTE!!!  HAVING `stdio_init_all()` IN YOUR CODE WILL CRASH THIS DEBUGGER
 ## Running in [Wokwi](https://wokwi.com/) 👀
 
 No pico no problem! We can just simulate it 🤯

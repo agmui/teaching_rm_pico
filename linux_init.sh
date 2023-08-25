@@ -38,8 +38,21 @@ echo "Installing picotool to /usr/local/bin/picotool"
 sudo cp picotool /usr/local/bin/
 cd ..
 sudo cp udev/99-picotool.rules /etc/udev/rules.d/ # run picotool without sudo
+sudo udevadm control --reload # TODO: check if this works
 cd ..
 rm -rf picotool/
+
+
+#==================== openocd====================
+sudo apt install wget
+# TODO somehow get the latest
+wget https://github.com/earlephilhower/pico-quick-toolchain/releases/latest/download/x86_64-linux-gnu.openocd-8e3c38f78.230216.tar.gz
+# https://github.com/earlephilhower/pico-quick-toolchain/releases/download/1.5.0-b/x86_64-linux-gnu.openocd-8e3c38f78.230216.tar.gz
+
+tar -xvf x86_64-linux-gnu.openocd-8e3c38f78.230216.tar.gz
+cd openocd/bin
+$OPENOCD_PATH=$(pwd)
+sudo ls -s $OPENOCD_PATH /usr/local/bin
 
 # does not work because you can't update path(https://unix.stackexchange.com/questions/675050/update-bashrc-and-reload)
 # auto open in vscode 

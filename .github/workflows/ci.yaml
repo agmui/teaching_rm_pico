@@ -1,5 +1,6 @@
 name: Build and test
 
+# Only run this when the master branch changes
 on:
   workflow_dispatch:
   push:
@@ -30,7 +31,7 @@ jobs:
           cd rm_pico_dev
           git submodule update --init --recommend-shallow 
           cd lib/pico-sdk/
-          git submodule update --init --recommend-shallow 
+          git submodule update --init --recommend-shallow
       - name: Compile firmware # just runs basic cmds and builds whole program
         run: |
           cd ${{ github.workspace }}
@@ -43,6 +44,11 @@ jobs:
         with:
           name: firmware
           path: ${{ github.workspace }}/build/pico_app.*
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v3.6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/rm_pico_dev/docs/html
 
   test-on-wokwi:
     runs-on: ubuntu-latest
@@ -60,4 +66,31 @@ jobs:
           token: ${{ secrets.WOKWI_CLI_TOKEN }}
           path: /
           timeout: 1000 # ms
-          scenario: 'test/wokwi.sample_test.yaml'
+          scenario: "test/wokwi.sample_test.yaml"
+
+  # deploy-book:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+
+  #     # # Install dependencies
+  #     # - name: Set up Python 3.8
+  #     #   uses: actions/setup-python@v2
+  #     #   with:
+  #     #     python-version: 3.8
+
+  #     # - name: Install dependencies
+  #     #   run: |
+  #     #     pip install -r requirements.txt
+
+  #     # # Build the book
+  #     # - name: Build the book
+  #     #   run: |
+  #     #     jupyter-book build .
+
+  #     # Push the book's HTML to github-pages
+  #     - name: GitHub Pages action
+  #       uses: peaceiris/actions-gh-pages@v3.6.1
+  #       with:
+  #         github_token: ${{ secrets.GITHUB_TOKEN }}
+  #         publish_dir: ./build/rm_pico_dev/docs/html

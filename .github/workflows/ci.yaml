@@ -48,7 +48,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3.6.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./sample_rm_pico_app/build/rm_pico_dev/docs/html
+          publish_dir: ./build/rm_pico_dev/docs/html
 
   test-on-wokwi:
     runs-on: ubuntu-latest

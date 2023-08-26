@@ -10,9 +10,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
-    # env:
-    #   PICO_SDK_PATH: /home/runner/work/sample_rm_pico_app/lib/pico-sdk
-    #   SDK_VERSION: 1.5.0
+    env:
+      PICO_SDK_PATH: /home/runner/work/sample_rm_pico_app/sample_rm_pico_app/lib/pico-sdk
+      SDK_VERSION: 1.5.0
     permissions:
       contents: write
     concurrency:

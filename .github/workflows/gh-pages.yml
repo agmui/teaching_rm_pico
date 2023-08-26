@@ -43,17 +43,9 @@ jobs:
           git submodule update --init --recommend-shallow 
           cd lib/pico-sdk/
           git submodule update --init --recommend-shallow
-          ls
-          pwd
       - name: Build
         run: |
           cd ${{ github.workspace }}
-          pwd
-          ls
-          ls rm_pico_dev/lib/pico-sdk
-          cd rm_pico_dev/lib/pico-sdk
-          pwd
-          cd ../../../
           mkdir build
           cd build
           cmake ..

@@ -58,6 +58,6 @@ jobs:
         uses: wokwi/wokwi-ci-action@v1
         with:
           token: ${{ secrets.WOKWI_CLI_TOKEN }}
-          path: / #./test
+          path: /
           timeout: 1000 # ms
-          scenario: 'wokwi.sample_test.yaml'
+          scenario: 'test/wokwi.sample_test.yaml'

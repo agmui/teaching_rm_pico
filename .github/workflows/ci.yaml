@@ -37,12 +37,12 @@ jobs:
           mkdir build
           cd build
           cmake ..
-          make
+          make -j4
       - name: Upload firmware
         uses: actions/upload-artifact@v3
         with:
           name: firmware
-          path: build/blink.*
+          path: build/rm_pico_app.u2f
 
   test-on-wokwi:
     runs-on: ubuntu-latest

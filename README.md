@@ -202,6 +202,12 @@ then open up `main.cpp` to add breakpoints
 
 to set up any wiring go here and copy the `diagram.json` when done [pico wokwi](https://wokwi.com/projects/new/pi-pico)
 
+> **NOTE:** `pico_enable_stdio_uart(${PROJECT_NAME} 1)` has to be on to get output
+
+## running Wokwi tests
+
+`wokwi-cli --timeout "1000" --expect-text "" --fail-text "" --scenario "tests/wokwi.sample_test.yaml"`
+
 ## Building
 
 Method 1:  

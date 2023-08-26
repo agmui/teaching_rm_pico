@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
     pico::Drivers *drivers = new pico::Drivers();
     // pico::Drivers *drivers = pico::Drivers::getDrivers();
 
-    // stdio_init_all();
+    stdio_init_all();
     gpio_init(25);
     gpio_set_dir(25, GPIO_OUT);
 

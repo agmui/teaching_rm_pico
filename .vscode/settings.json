@@ -25,7 +25,7 @@
     ".gitignore": true,
     ".gitmodules": true,
     "wokwi.toml": true,
-    // ".github/": true
+    ".github/": true
   },
   "git.detectSubmodules": false,// hides all submodules in git tab
   "workspaceKeybindings.myAwesomeTask.enabled": true // setting can be anything you want

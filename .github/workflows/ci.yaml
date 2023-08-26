@@ -44,6 +44,10 @@ jobs:
         with:
           name: firmware
           path: ${{ github.workspace }}/build/pico_app.*
+      - name: Set up the toolchain
+        run: |
+          ls
+          ls ${{ github.workspace }}/build/
       - name: Upload docs
         uses: actions/upload-artifact@v3
         with:
@@ -67,25 +71,26 @@ jobs:
   #         path: /
   #         timeout: 1000 # ms
   #         scenario: "test/wokwi.sample_test.yaml"
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      contents: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-    steps:
-      - uses: actions/checkout@v3
-      - name: Download docs # cp the build dir(/build/pico_app.*) from the above steps(name: Upload firmware)
-        uses: actions/download-artifact@v2
-        with:
-          name: docs
-          path: build
-      - name: GitHub Pages action
-        uses: peaceiris/actions-gh-pages@v3.6.1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/rm_pico_dev/docs/html
+
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   permissions:
+  #     contents: write
+  #   concurrency:
+  #     group: ${{ github.workflow }}-${{ github.ref }}
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Download docs # cp the build dir(/build/pico_app.*) from the above steps(name: Upload firmware)
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: docs
+  #         path: build
+  #     - name: GitHub Pages action
+  #       uses: peaceiris/actions-gh-pages@v3.6.1
+  #       with:
+  #         github_token: ${{ secrets.GITHUB_TOKEN }}
+  #         publish_dir: ./build/rm_pico_dev/docs/html
 
   # deploy-book:
   #   runs-on: ubuntu-latest

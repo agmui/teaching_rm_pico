@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: firmware
-          path: ${{ github.workspace }}/build/pico_app.u2f
+          path: ${{ github.workspace }}/build/*.uf2
 
   test-on-wokwi:
     runs-on: ubuntu-latest

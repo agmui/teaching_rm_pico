@@ -40,7 +40,8 @@ jobs:
           mkdir build
           cd build
           cmake ..
-          cmake --build . --target docs
+          cd ..
+          cmake --build ./build --target docs
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

@@ -55,9 +55,14 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           ls
+          echo ==
           pwd
+          echo ==
           ls build
+          echo ==
           ls build/rm_pico_dev/docs/html
+          echo ==
+          pwd
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

@@ -69,3 +69,16 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ${{ github.workspace }}/build/rm_pico_dev/docs/html # ./build/rm_pico_dev/docs/html
+      - name: debug #TODO remove
+        run: |
+          cd ${{ github.workspace }}
+          ls
+          echo ==
+          pwd
+          echo ==
+          ls build
+          echo ==
+          ls build/rm_pico_dev/docs/html
+          echo ==
+          cd build/rm_pico_dev/docs/html
+          pwd

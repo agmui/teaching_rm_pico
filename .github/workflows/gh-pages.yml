@@ -22,7 +22,7 @@ jobs:
       - name: Set up the toolchain
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential doxygen
+          sudo apt-get install -y cmake doxygen gcc-arm-none-eabi  # libnewlib-arm-none-eabi build-essential
     #     with:
     #       submodules: true  # Fetch Hugo themes (true OR recursive)
     #       fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
@@ -51,7 +51,13 @@ jobs:
           cmake ..
           cd ..
           cmake --build ./build --target docs
-
+      - name: debug #TODO remove
+        run: |
+          cd ${{ github.workspace }}
+          ls
+          pwd
+          ls build
+          ls build/rm_pico_dev/docs/html
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

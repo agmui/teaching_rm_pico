@@ -23,15 +23,25 @@ Start-Process wpr -verb runAs -Args "-start GeneralProfile"
 # winget install -e --id DimitriVanHeesch.Doxygen
 # winget install -e --id Python.Python.3.10
 # winget install -e --id Git.Git
-# winget install -e --id Microsoft.VisualStudio.2022.BuildTools
+# winget install -e --id Microsoft.VisualStudio.2022.BuildTools --package-parameters "--includeRecommended"
 # winget install -e --id Microsoft.VisualStudioCode
 
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-choco install git
-choco install ninja
-choco install gcc-arm-embedded
-choco install mingw # contains gcc and python
-choco install vscode
+#Requires -RunAsAdministrator
+
+# Use chocolatey for any packages it supports. Makes job easier
+$chocoexists = Get-Command -Name choco.exe -ErrorAction SilentlyContinue
+if(-not($chocoexists)){
+    Write-Output "Chocolatey is not installed, installing now"
+    # From chocolatey.org/install
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+} else {
+    Write-Output "Chocolatey is already installed"
+}
+
+refreshenv # to update enviromen vars
+
+# mingw contains gcc and python3.9
+choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System' git vscode gcc-arm-embedded mingw ninja
 
 refreshenv # to update enviromen vars
 

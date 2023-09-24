@@ -1,6 +1,3 @@
-# sudo
-Start-Process wpr -verb runAs -Args "-start GeneralProfile"
-
 
 # install winget
 # $progressPreference = 'silentlyContinue'
@@ -55,15 +52,17 @@ cd lib/pico-sdk/
 git submodule update --init --recommend-shallow 
 setx PICO_SDK_PATH $PWD
 
+refreshenv # to update enviromen vars
+
 cd ../../../
 
 # installing vscode extensions
 $json_file = Get-Content 'C:\%CD%\.vscode\extensions.json' | Out-String | ConvertFrom-Json
-$json_file | Get-Member -MemberType NoteProperty | ForEach-Object {
-    $key = $_.Name
-    [PSCustomObject]@{Key = $key; Value = $obj."$key"}
+foreach($elem in $json_file.PsObject.Properties.Value){
+    Write-Host $elem # print
+    code --install-extension $elem
 }
-code --install-extension ms-vscode.cpptools
 
-start "" cmd /b /c code "%PICO_REPOS_PATH%" && exit 0
+start "" cmd /b /c code "%PICO_REPOS_PATH%" 
+exit 0
 

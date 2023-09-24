@@ -43,7 +43,7 @@ choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System' git vscode gcc-a
 refreshenv # to update enviromen vars
 
 echo running pico-setup
-git clone https://github.com/agmui/sample_rm_pico_app.git || exit /b 1
+git clone https://github.com/agmui/sample_rm_pico_app.git
 cd sample_rm_pico_app
 git submodule update --init --recommend-shallow 
 cd rm_pico_dev

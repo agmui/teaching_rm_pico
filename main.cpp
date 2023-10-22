@@ -1,46 +1,28 @@
-
 #include <iostream>
-#include <drivers.h>
-#include <Debug.h>
-#include "pico/stdlib.h"
+#include "pico/stdlib.h" // the pico-sdk lib
+#include <stdio.h>
+
 
 int main(int argc, char const *argv[])
 {
-    pico::Drivers *drivers = new pico::Drivers();
-    // pico::Drivers *drivers = pico::Drivers::getDrivers();
+    stdio_init_all();// allows printing to terminal
 
-    stdio_init_all();
-    gpio_init(25);
-    gpio_set_dir(25, GPIO_OUT);
+    gpio_init(25);// init pin 25(the led)
+    gpio_set_dir(25, GPIO_OUT);//set pin 25 to output
 
-    drivers->remote.initialize();
     while (1)
     {
+        //print hello world
+        std::cout << "hello world" << std::endl;
+
         // Turn On LED
         gpio_put(25, 1); // Set pin 25 to high
-        printf("LED on!\n");
-        sleep_ms(250);
+        sleep_ms(250);//wait for 250 ms
+        printf("LED switched on!\n");// print 
         // Turn Off LED
         gpio_put(25, 0); // Set pin 25 to high.
-        printf("LED off!\n");
         sleep_ms(250);
-        // try
-        // {
-        //     throw std::invalid_argument("received negative value");
-        // }
-        // catch (const std::invalid_argument &e)
-        // {
-        //     std::cout << "throw" << std::endl;
-        // }
+        printf("LED switched off!\n");
 
-
-        // ====
-        std::cout << "." << std::endl;
-        drivers->remote.read(); // Reading the remote before we check if it is connected yet or not.
-        if (drivers->remote.isConnected())
-        {
-            std::cout << "remote: " << drivers->remote.getChannel(pico::communication::serial::Remote::Channel::LEFT_HORIZONTAL) << std::endl;
-        }
-        tight_loop_contents();
     }
 }

@@ -23,7 +23,6 @@
 # winget install -e --id Microsoft.VisualStudio.2022.BuildTools --package-parameters "--includeRecommended"
 # winget install -e --id Microsoft.VisualStudioCode
 
-#Requires -RunAsAdministrator
 if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
  Start-Process -FilePath PowerShell.exe -Verb Runas -ArgumentList "-File `"$($MyInvocation.MyCommand.Path)`"  `"$($MyInvocation.MyCommand.UnboundArguments)`""
  Exit

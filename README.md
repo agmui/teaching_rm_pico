@@ -34,7 +34,7 @@ go on to [vscode section](#vscode-extensions)
 
 ## Windows
 
-download and run: [rm-pico-installer](https://github.com/agmui/rm-pico-setup-windows/releases/download/v1.0.0-alpha/pico-setup-windows-x64-standalone.exe)
+download and run: [rm-pico-installer](https://github.com/agmui/sample_rm_pico_app/blob/main/windows_install.exe)
 
 It automatically installs all the tools and vscode.
 

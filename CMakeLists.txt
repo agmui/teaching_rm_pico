@@ -26,6 +26,10 @@ set(PICO_CXX_ENABLE_RTTI 1)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
+# if (TARGET tinyusb_device)
+# elseif(PICO_ON_DEVICE)
+# message(WARNING "not building hello_usb because TinyUSB submodule is not initialized in the SDK")
+# endif()
 
 # Add executable. Default name is the project name, version 0.1
 
@@ -34,7 +38,7 @@ add_executable(${PROJECT_NAME} main.cpp )
 pico_set_program_name(${PROJECT_NAME} "pico_app")
 pico_set_program_version(${PROJECT_NAME} "0.1")
 
-pico_enable_stdio_uart(${PROJECT_NAME} 0)
+pico_enable_stdio_uart(${PROJECT_NAME} 1)
 pico_enable_stdio_usb(${PROJECT_NAME} 1)
 
 add_subdirectory(rm_pico_dev)
@@ -56,6 +60,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE rm_pico_dev)
 # target_link_libraries(${PROJECT_NAME} 
 
 #         )
+target_include_directories(${PROJECT_NAME} PRIVATE rm_pico_dev/lib/icecream/)
 
 pico_add_extra_outputs(${PROJECT_NAME})
 

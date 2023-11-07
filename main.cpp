@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 //NOTE: icecream mutexes are turned off
-#include "icecream.hpp"//TODO: Make so it only happens for debug build
+// #include "icecream.hpp"//TODO: Make so it only happens for debug build
 
 int main(int argc, char const *argv[])
 {
@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 
     while (1)
     {
-        IC();
+        // IC();
         //print hello world
         std::cout << "hello world" << std::endl;
 

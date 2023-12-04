@@ -97,6 +97,16 @@
     "build/pioasm":true,
     "build/**/[!rm_pico_dev]*": true,
     "build/**/*.[!uf2]*": true,
+
+    "test/**": true,
+    "CMakeLists.txt": true,
+    "diagram.json": true,
+    "dji_remote.chip.json": true,
+    "linux_init.sh": true,
+    "picotool.exe": true,
+    "README.md": true,
+    "windows_install.exe": true,
+    "windows_install.ps1": true,
   },
    // Configure glob patterns for excluding files and folders in searches. 
    // Inherits all glob patterns from the `files.exclude` setting.   
